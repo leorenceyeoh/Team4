@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Button from '@mui/material/Button';
+import { Avatar, Link } from '@mui/material';
+import logo from './assets/logo.jpg';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -19,9 +21,14 @@ const Login = () => {
         // Here you can handle the login logic, like sending the username and password to the server
     };
 
+    const onClickSignUp = (url:string) => {
+        console.log("url")
+        window.location.href = url;
+    }
+
     return (
         <div className="login-container">
-            <h1>Your Logo here</h1>
+            <Avatar src={logo} sx={{ width: 250, height: 200 }}/>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="username">Username:</label>
@@ -43,7 +50,9 @@ const Login = () => {
                         required
                     />
                 </div>
-                <Button variant="contained">Login</Button>
+                <Button variant="contained">Login</Button> 
+                <br/>
+                <Link href="#" onClick={() => onClickSignUp('/signup')}>{"Don't have an account? Sign Up"}</Link>
             </form>
         </div>
     );
