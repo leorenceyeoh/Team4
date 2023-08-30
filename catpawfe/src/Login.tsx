@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Button from '@mui/material/Button';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -42,7 +43,7 @@ const Login = () => {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <Button variant="contained">Login</Button>
             </form>
         </div>
     );
