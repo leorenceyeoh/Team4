@@ -1,7 +1,7 @@
 ﻿import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './header.css';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo-nobg.png';
 import { Avatar, InputBase, alpha, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -50,7 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const HeaderBar = () => {
     return (
         <div className="header">
-            <div className="logo"><Avatar src={logo} sx={{ width: 125, height: 100 }} /></div>
+            <div className="logo"><Avatar src={logo} sx={{ width: 50, height: 50, marginTop:"22px" }} variant="square" /></div>
             <Search><SearchIconWrapper><SearchIcon /></SearchIconWrapper>
                 <StyledInputBase
                     placeholder="Search..."
