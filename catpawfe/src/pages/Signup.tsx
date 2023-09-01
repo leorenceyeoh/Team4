@@ -19,12 +19,12 @@ export default function Signup() {
     }
 
     return (
-        <Container maxWidth="sm">
-            <Card sx={{ maxWidth: 500 }}>
-                <Avatar src={logo} sx={{ width: 250, height: 200, mx: '120px' }} />
+        <Container sx={{ maxWidth: 500 }}>
+            <Card sx={{ maxWidth: 600 }}>
+                <Avatar src={logo} sx={{ width: 175, height: 155, ml: '220px', mt: '2px' }} />
                 <Box sx={{ display: 'inline-block' }}>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, mx: '15px', mb: "10px" }}>
-                        <Grid container spacing={2}>
+                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mx: '8px', mb: "8px" }}>
+                        <Grid container spacing={1}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     autoComplete="given-name"
@@ -71,12 +71,73 @@ export default function Signup() {
                                     size="small"
                                 />
                             </Grid>
+                            <Grid item xs={12} sm={6}>
+                                <TextField
+                                    autoComplete="street-addr1"
+                                    name="streetAddr1"
+                                    required
+                                    fullWidth
+                                    id="streetAddr1"
+                                    label="Street Address 1"
+                                    autoFocus
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                            <TextField
+                                    autoComplete="street-addr2"
+                                    name="streetAddr2"
+                                    required
+                                    fullWidth
+                                    id="streetAddr2"
+                                    label="Street Address 2"
+                                    autoFocus
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                            <TextField
+                                    autoComplete="pascode"
+                                    name="pascode"
+                                    required
+                                    fullWidth
+                                    id="pascode"
+                                    label="Poscode"
+                                    autoFocus
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm={6}>
+                            <TextField
+                                    autoComplete="state"
+                                    name="state"
+                                    required
+                                    fullWidth
+                                    id="state"
+                                    label="State"
+                                    autoFocus
+                                    size="small"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                            <TextField
+                                    autoComplete="city"
+                                    name="city"
+                                    required
+                                    fullWidth
+                                    id="city"
+                                    label="City"
+                                    autoFocus
+                                    size="small"
+                                />
+                            </Grid>
                         </Grid>
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
+                            sx={{ mt: 1, mb: 2 }}
+                            size="small"
                         >
                             Sign Up
                         </Button>
