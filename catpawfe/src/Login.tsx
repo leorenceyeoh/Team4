@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './login.css'
 import Button from '@mui/material/Button';
 import { Avatar, Link } from '@mui/material';
 import logo from './assets/logo.jpg';
@@ -23,6 +23,11 @@ const Login = () => {
 
     const onClickSignUp = (url:string) => {
         console.log("url")
+        window.location.href = url;
+    }
+
+    const onClickLogIn = (url: string) => {
+        console.log("logging in...");
         window.location.href = url;
     }
 
@@ -50,7 +55,7 @@ const Login = () => {
                         required
                     />
                 </div>
-                <Button variant="contained">Login</Button> 
+                <Button variant="contained" onClick={() => onClickLogIn('/home')}>Login</Button> 
                 <br/>
                 <Link href="#" onClick={() => onClickSignUp('/signup')}>{"Don't have an account? Sign Up"}</Link>
             </form>
