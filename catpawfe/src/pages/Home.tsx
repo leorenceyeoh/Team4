@@ -12,8 +12,10 @@ export default function Home() {
          <div className='navBar'>
             <HeaderBar />
         </div>
-        <Container fixed sx={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', width:1300, height:450}}>
-        </Container>
+        <div style={{marginLeft:-190, width:60, display:"flex", height:478.5, flexDirection:"row"}}>
+        <img src={banner} />
+        </div>
+       
           <Container maxWidth="md" sx={{marginTop:"20px"}}>
             <Typography
               component="h1"
