@@ -5,10 +5,11 @@
   padding: 1rem;
   display:flex;
   flex-direction:row;
+  height: 20px;
 }
 
 .logo {
-    padding:0px 650px 0px 0px;
+    padding:0px 800px 0px 0px;
 }
 
 .nav ul {
