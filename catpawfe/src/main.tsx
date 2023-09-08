@@ -10,31 +10,36 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Signup from './pages/Signup.tsx';
 import Home from './pages/Home.tsx';
 import ProductDetailsPage from './pages/ProductDetailsPage.tsx';
+import InventoryListing from './pages/InventoryListing.tsx';
 
 
 const router = createBrowserRouter([
   {
-      path: '/',
-      element: <Login />
+    path: '/',
+    element: <Login />
   },
   {
-      path: '/signUp',
-      element: <Signup />
-    },
+    path: '/signUp',
+    element: <Signup />
+  },
   {
-      path: '/home',
-      element: <Home />
+    path: '/home',
+    element: <Home />
   },
   {
     path: '/productDetail/:productId',
     element: <ProductDetailsPage />
-}
+  },
+  {
+    path: '/inventoryList',
+    element: <InventoryListing />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <React.StrictMode>
-        <RouterProvider router = { router } />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 // const root = ReactDOM.createRoot(document.getElementById('root')!).render(
