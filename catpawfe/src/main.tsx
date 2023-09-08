@@ -9,6 +9,8 @@ import '@fontsource/roboto/700.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Signup from './pages/Signup.tsx';
 import Home from './pages/Home.tsx';
+import ProductDetailsPage from './pages/ProductDetailsPage.tsx';
+
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,11 @@ const router = createBrowserRouter([
   {
       path: '/home',
       element: <Home />
-  }
+  },
+  {
+    path: '/productDetail/:productId',
+    element: <ProductDetailsPage />
+}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
