@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './login.css'
 import Button from '@mui/material/Button';
 import { Avatar, Link, TextField } from '@mui/material';
-import logo from './assets/logo.jpg';
+import logo from '../assets/logo.jpg';
 
 const Login = () => {
     const [username, setUsername] = useState('');
