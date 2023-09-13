@@ -54,7 +54,7 @@ const Login = () => {
                 <br/>
                 <Link href="#" onClick={() => onClickSignUp('/signup')}>{"Don't have an account? Sign Up"}</Link>
             </form>
-        </div>\
+        </div>
     );
 };
 
