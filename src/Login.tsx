@@ -10,6 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [usernameError, setUsernameError] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleUsernameChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         setUsername(event.target.value);
@@ -58,6 +59,7 @@ const Login = () => {
                 window.location.href = url;
             }).catch((error: Error) => {
                 console.log(error, "error")
+                setErrorMessage('Invalid user credentials. Please try again.')
             })
         }
     }
@@ -91,6 +93,7 @@ const Login = () => {
                         helperText={passwordError}
                     />
                 </div>
+                {errorMessage && <div style={{color:'red'}}>{errorMessage}</div>}
                 <br />
                 <Button variant="contained" onClick={() => onClickLogin('/home')}>Login</Button>
                 <br />
