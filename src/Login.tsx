@@ -3,6 +3,7 @@ import './login.css'
 import Button from '@mui/material/Button';
 import { Avatar, Link, TextField } from '@mui/material';
 import logo from './assets/logo.jpg';
+import axios from 'axios';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -27,8 +28,19 @@ const Login = () => {
     }
 
     const onClickLogIn = (url: string) => {
-        console.log("logging in...");
-        window.location.href = url;
+        console.log(username, password);
+        axios.post('https://purrfectpawsapi2.azurewebsites.net/api/UserLogin/Login', {
+            email: username,
+            password: password
+        })
+            .then((response) => {
+                const token = response.data;
+                sessionStorage.setItem('token', token);
+                window.location.href = url;
+            })
+            .catch((error) => {
+                console.log(error);
+        })
     }
 
     return (
