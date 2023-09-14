@@ -15,14 +15,16 @@ steps:
     versionSpec: '18.x'
   displayName: 'Install Node.js'
 
+- task: PublishPipelineArtifact@0
+  displayName: 'Publish pipeline artifact'
+  inputs:
+    artifactName: 'drop'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+
 
 - script: |
     npm install
     npm run build
   displayName: 'npm install and build'
 
-  - task: PublishPipelineArtifact@0
-  displayName: 'Publish pipeline artifact'
-  inputs:
-    artifactName: 'drop'
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+
