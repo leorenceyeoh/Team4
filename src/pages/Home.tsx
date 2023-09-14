@@ -1,8 +1,6 @@
 ﻿import { Button, Card, CardActions, CardContent, CardMedia, Container, Divider, Grid, Typography } from '@mui/material';
 import HeaderBar from '../header/header.tsx';
 import './home.css';
-import banner from '../assets/banner.jpg';
-import ProductDetailsPage from './ProductDetailsPage.tsx';
 import {useNavigate} from 'react-router-dom';
 
 export default function Home() {
