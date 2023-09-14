@@ -3,6 +3,7 @@ import './login.css'
 import Button from '@mui/material/Button';
 import { Avatar, Link, TextField } from '@mui/material';
 import logo from './assets/logo.jpg';
+import axios from 'axios';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -21,13 +22,11 @@ const Login = () => {
     };
 
     const onClickSignUp = (url: string) => {
-        console.log("url")
         window.location.href = url;
     }
 
     const onClickLogin = (url: string) => {
         console.log("logging in...");
-        console.log("submit")
         // Here you can handle the login logic, like sending the username and password to the server
 
         //validation
@@ -44,16 +43,24 @@ const Login = () => {
         if (password.trim() === '') {
             setPasswordError('Please fill up password');
             isPasswordValid = false;
-        }else {
+        } else {
             setPasswordError('');
         }
 
         if (isPasswordValid && isUsernameValid) {
-            window.location.href = url;
+            axios.post('https://purrfectpawsapi2.azurewebsites.net/api/UserLogin/Login', {
+                email: username,
+                password: password
+            }).then((response) => {
+                console.log(response,"reponse")
+                const token = response.data;
+                sessionStorage.setItem('token', token);
+                window.location.href = url;
+            }).catch((error: Error) => {
+                console.log(error, "error")
+            })
         }
     }
-
-    console.log(usernameError,"erere")
 
     return (
         <div className="login-container">
