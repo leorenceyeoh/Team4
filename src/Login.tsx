@@ -3,7 +3,6 @@ import './login.css'
 import Button from '@mui/material/Button';
 import { Avatar, Link, TextField } from '@mui/material';
 import logo from './assets/logo.jpg';
-import axios from 'axios';
 import { login } from './service/api';
 
 const Login = () => {
