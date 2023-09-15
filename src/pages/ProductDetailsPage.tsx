@@ -1,17 +1,15 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Typography } from "@mui/material";
 import HeaderBar from "../header/header";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 
 export default function ProductDetailsPage() {
 
-    const [selectedValue, setSelectedValue] = useState('Red');
     const { productId } = useParams();
 
-    const handleChange = (event) => {
-        //setSelectedValue(event.target.value);
-    };
+    // const handleChange = (event) => {
+    //     //setSelectedValue(event.target.value);
+    // };
 
     const data = [
         {
