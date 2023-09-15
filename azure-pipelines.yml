@@ -13,6 +13,9 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '18.x'
+    azureSubscription: '91619103-87e6-466c-a578-fdda08b18e6c'
+    appName: 'CatShoppe' 
+    resourceGroupName: 'catshoppe'
   displayName: 'Install Node.js'
 
 - task: PublishPipelineArtifact@0
