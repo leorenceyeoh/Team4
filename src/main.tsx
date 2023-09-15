@@ -11,6 +11,8 @@ import Signup from './pages/Signup.tsx';
 import Home from './pages/Home.tsx';
 import ProductDetailsPage from './pages/ProductDetailsPage.tsx';
 import InventoryListing from './pages/InventoryListing.tsx';
+import ShoppingCart from './pages/ShoppingCart.tsx';
+import UserProfile from './pages/UserProfile.tsx';
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
   {
     path: '/inventoryList',
     element: <InventoryListing />
+  },
+  {
+    path: '/shoppingCart',
+    element: <ShoppingCart />
+  },
+  {
+    path: '/userProfile',
+    element: <UserProfile />
   }
 ]);
 
