@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Avatar, Link, TextField } from '@mui/material';
 import logo from './assets/logo.jpg';
 import axios from 'axios';
+import { login } from './service/api';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -15,11 +16,13 @@ const Login = () => {
     const handleUsernameChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         setUsername(event.target.value);
         setUsernameError('');
+        setErrorMessage('')
     };
 
     const handlePasswordChange = (event: { target: { value: SetStateAction<string>; }; }) => {
         setPassword(event.target.value);
         setPasswordError('');
+        setErrorMessage('');
     };
 
     const onClickSignUp = (url: string) => {
@@ -33,12 +36,15 @@ const Login = () => {
         //validation
         let isUsernameValid = true;
         let isPasswordValid = true;
+        let isEmailFormatValid = true;
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
         if (username.trim() === '') {
             setUsernameError('Please fill up username');
             isUsernameValid = false;
-        } else {
-            setUsernameError('');
+        } else if (!emailRegex.test(username)) {
+            setUsernameError('Invalid email format');
+            isEmailFormatValid = false;
         }
 
         if (password.trim() === '') {
@@ -48,11 +54,9 @@ const Login = () => {
             setPasswordError('');
         }
 
-        if (isPasswordValid && isUsernameValid) {
-            axios.post('https://purrfectpawsapi2.azurewebsites.net/api/UserLogin/Login', {
-                email: username,
-                password: password
-            }).then((response) => {
+        if (isPasswordValid && isUsernameValid && isEmailFormatValid) {
+            login(username,password)
+            .then((response) => {
                 console.log(response,"reponse")
                 const token = response.data;
                 sessionStorage.setItem('token', token);
