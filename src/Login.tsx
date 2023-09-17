@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Avatar, Link, TextField } from '@mui/material';
 import logo from './assets/logo.jpg';
 import { login } from './service/api';
+import { validateEmailPattern } from './common/commonFunctions';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -28,7 +29,7 @@ const Login = () => {
         window.location.href = url;
     }
 
-    const onClickLogin = (url: string) => {
+    const onClickLogin = () => {
         console.log("logging in...");
         // Here you can handle the login logic, like sending the username and password to the server
 
@@ -36,12 +37,11 @@ const Login = () => {
         let isUsernameValid = true;
         let isPasswordValid = true;
         let isEmailFormatValid = true;
-        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
         if (username.trim() === '') {
             setUsernameError('Please fill up username');
             isUsernameValid = false;
-        } else if (!emailRegex.test(username)) {
+        } else if (!validateEmailPattern(username)) {
             setUsernameError('Invalid email format');
             isEmailFormatValid = false;
         }
@@ -59,7 +59,7 @@ const Login = () => {
                 console.log(response,"reponse")
                 const token = response.data;
                 sessionStorage.setItem('token', token);
-                window.location.href = url;
+                window.location.href = "/home";
             }).catch((error: Error) => {
                 console.log(error, "error")
                 setErrorMessage('Invalid user credentials. Please try again.')
@@ -98,7 +98,7 @@ const Login = () => {
                 </div>
                 {errorMessage && <div style={{color:'red'}}>{errorMessage}</div>}
                 <br />
-                <Button variant="contained" onClick={() => onClickLogin('/home')}>Login</Button>
+                <Button variant="contained" onClick={() => onClickLogin()}>Login</Button>
                 <br />
                 <Link href="#" onClick={() => onClickSignUp('/signup')}>{"Don't have an account? Sign Up"}</Link>
             </form>
