@@ -18,7 +18,7 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function SignUpSuccess() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     const handleClose = () => {
         setOpen(false);
