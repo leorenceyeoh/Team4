@@ -126,156 +126,155 @@ export default function Signup() {
     const onClickSignIn = (url: string) => {
         window.location.href = url;
     }
-
+    console.log(showSuccessDialog, "dialog")
     return (
-        <><Container sx={{ maxWidth: 500 }}>
-            <Card sx={{ maxWidth: 600 }}>
-                <Avatar src={logo} sx={{ width: 175, height: 155, ml: '220px', mt: '2px' }} />
-                <Box sx={{ display: 'inline-block' }}>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mx: '8px', mb: "8px" }}>
-                        <Grid container spacing={1}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="given-name"
-                                    name="name"
-                                    required
-                                    fullWidth
-                                    id="name"
-                                    label="Name"
-                                    autoFocus
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.name}
-                                    error={Boolean(formErrors.nameError)}
-                                    helperText={formErrors.nameError} />
+        <>  {showSuccessDialog && <SignUpSuccess />}
+            <Container sx={{ maxWidth: 500 }}>
+                <Card sx={{ maxWidth: 600 }}>
+                    <Avatar src={logo} sx={{ width: 175, height: 155, ml: '220px', mt: '2px' }} />
+                    <Box sx={{ display: 'inline-block' }}>
+                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mx: '8px', mb: "8px" }}>
+                            <Grid container spacing={1}>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="given-name"
+                                        name="name"
+                                        required
+                                        fullWidth
+                                        id="name"
+                                        label="Name"
+                                        autoFocus
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.name}
+                                        error={Boolean(formErrors.nameError)}
+                                        helperText={formErrors.nameError} />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.email}
+                                        error={Boolean(formErrors.emailError)}
+                                        helperText={formErrors.emailError} />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        autoComplete="new-password"
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.password}
+                                        error={Boolean(formErrors.passwordError)}
+                                        helperText={formErrors.passwordError} />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="street-addr1"
+                                        name="streetAddr1"
+                                        required
+                                        fullWidth
+                                        id="streetAddr1"
+                                        label="Street Address 1"
+                                        autoFocus
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.streetAddr1}
+                                        error={Boolean(formErrors.streetAddr1Error)}
+                                        helperText={formErrors.streetAddr1Error} />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="street-addr2"
+                                        name="streetAddr2"
+                                        required
+                                        fullWidth
+                                        id="streetAddr2"
+                                        label="Street Address 2"
+                                        autoFocus
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.streetAddr2}
+                                        error={Boolean(formErrors.streetAddr2Error)}
+                                        helperText={formErrors.streetAddr2Error} />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="poscode"
+                                        name="poscode"
+                                        required
+                                        fullWidth
+                                        id="poscode"
+                                        label="Poscode"
+                                        autoFocus
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.poscode}
+                                        error={Boolean(formErrors.poscodeError)}
+                                        helperText={formErrors.poscodeError} />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        autoComplete="state"
+                                        name="state"
+                                        required
+                                        fullWidth
+                                        id="state"
+                                        label="State"
+                                        autoFocus
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.state}
+                                        error={Boolean(formErrors.stateError)}
+                                        helperText={formErrors.stateError} />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        autoComplete="city"
+                                        name="city"
+                                        required
+                                        fullWidth
+                                        id="city"
+                                        label="City"
+                                        autoFocus
+                                        size="small"
+                                        onChange={handleChange}
+                                        value={formData.city}
+                                        error={Boolean(formErrors.cityError)}
+                                        helperText={formErrors.cityError} />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.email}
-                                    error={Boolean(formErrors.emailError)}
-                                    helperText={formErrors.emailError} />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 1, mb: 2 }}
+                                size="small"
+                                onClick={handleSubmit}
+                            >
+                                Sign Up
+                            </Button>
+                            <Grid item>
+                                <Link href="#" variant="body2" onClick={() => onClickSignIn('/')}>
+                                    Already have an account? Sign in
+                                </Link>
                             </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="new-password"
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.password}
-                                    error={Boolean(formErrors.passwordError)}
-                                    helperText={formErrors.passwordError} />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="street-addr1"
-                                    name="streetAddr1"
-                                    required
-                                    fullWidth
-                                    id="streetAddr1"
-                                    label="Street Address 1"
-                                    autoFocus
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.streetAddr1}
-                                    error={Boolean(formErrors.streetAddr1Error)}
-                                    helperText={formErrors.streetAddr1Error} />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="street-addr2"
-                                    name="streetAddr2"
-                                    required
-                                    fullWidth
-                                    id="streetAddr2"
-                                    label="Street Address 2"
-                                    autoFocus
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.streetAddr2}
-                                    error={Boolean(formErrors.streetAddr2Error)}
-                                    helperText={formErrors.streetAddr2Error} />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="poscode"
-                                    name="poscode"
-                                    required
-                                    fullWidth
-                                    id="poscode"
-                                    label="Poscode"
-                                    autoFocus
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.poscode}
-                                    error={Boolean(formErrors.poscodeError)}
-                                    helperText={formErrors.poscodeError} />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="state"
-                                    name="state"
-                                    required
-                                    fullWidth
-                                    id="state"
-                                    label="State"
-                                    autoFocus
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.state}
-                                    error={Boolean(formErrors.stateError)}
-                                    helperText={formErrors.stateError} />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    autoComplete="city"
-                                    name="city"
-                                    required
-                                    fullWidth
-                                    id="city"
-                                    label="City"
-                                    autoFocus
-                                    size="small"
-                                    onChange={handleChange}
-                                    value={formData.city}
-                                    error={Boolean(formErrors.cityError)}
-                                    helperText={formErrors.cityError} />
-                            </Grid>
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 1, mb: 2 }}
-                            size="small"
-                            onClick={handleSubmit}
-                        >
-                            Sign Up
-                        </Button>
-                        <Grid item>
-                            <Link href="#" variant="body2" onClick={() => onClickSignIn('/')}>
-                                Already have an account? Sign in
-                            </Link>
-                        </Grid>
+                        </Box>
                     </Box>
-                </Box>
-            </Card>
-        </Container>
-            {showSuccessDialog &&
-                <SignUpSuccess />
-            }</>
+                </Card>
+            </Container>
+        </>
     );
 
 }
