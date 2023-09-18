@@ -13,7 +13,7 @@ export const login = ((username: string, password: string) => {
     )
 })
 
-export const signUp = ((body) => {
+export const signUp = ((body: { name: string; email: string; password: string; streetAddr1: string; streetAddr2: string; city: string; state: string; poscode: string}) => {
     return (
         axios({
             url: "https://localhost:7224/api/TUsers",
@@ -33,7 +33,7 @@ export const signUp = ((body) => {
                 "billingStreet_2": body.streetAddr2,
                 "billingCity": body.city,
                 "billingState": body.state,
-                "billingPostcode": body.postcode
+                "billingPostcode": body.poscode
 
             }
         })
