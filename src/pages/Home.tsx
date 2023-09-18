@@ -1,4 +1,4 @@
-﻿import { Button, Card, CardActions, CardContent, CardMedia, Container, Divider, Grid, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, CardMedia, Container, Divider, Grid, Typography } from '@mui/material';
 import HeaderBar from '../header/header.tsx';
 import './home.css';
 import {useNavigate} from 'react-router-dom';
