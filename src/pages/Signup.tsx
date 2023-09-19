@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import logo from '../assets/logo.jpg';
 import { useState } from "react";
 import { signUp } from "../service/api";
-import { validateEmailPattern, validatePasswordPattern } from "../common/commonFunctions";
+import { validateConfirmPassword, validateEmailPattern, validatePasswordPattern } from "../common/commonFunctions";
 import SignUpSuccess from "../dialog/signUpSuccess";
 
 export default function Signup() {
@@ -13,6 +13,7 @@ export default function Signup() {
         name: '',
         email: '',
         password: '',
+        confirmPassword: '',
         streetAddr1: '',
         streetAddr2: '',
         poscode: '',
@@ -24,6 +25,7 @@ export default function Signup() {
         nameError: '',
         emailError: '',
         passwordError: '',
+        confirmPasswordError: '',
         streetAddr1Error: '',
         streetAddr2Error: '',
         poscodeError: '',
@@ -45,6 +47,7 @@ export default function Signup() {
             nameError: '',
             emailError: '',
             passwordError: '',
+            confirmPasswordError: '',
             streetAddr1Error: '',
             streetAddr2Error: '',
             poscodeError: '',
@@ -68,9 +71,17 @@ export default function Signup() {
         if (formData.password.trim() === '') {
             errors.passwordError = 'Password cannot be empty.'
         } else if (!validatePasswordPattern(formData.password)) {
-            errors.passwordError = 'Password should contain 8 characters long.'
+            errors.passwordError = 'Password should contain atleast 8 characters, uppercase, lowercase and 1 special character'
         } else {
             errors.passwordError = ''
+        }
+
+        if (formData.confirmPassword.trim() === '') {
+            errors.confirmPasswordError = 'Password cannot be empty.'
+        } else if (!validateConfirmPassword(formData.password, formData.confirmPassword)) {
+            errors.confirmPasswordError = 'Password should be same as above.'
+        } else {
+            errors.confirmPasswordError = ''
         }
 
         if (formData.streetAddr1.trim() === '') {
@@ -86,7 +97,7 @@ export default function Signup() {
         }
 
         if (formData.poscode.trim() === '') {
-            errors.poscodeError = 'Poscode cannot be empty.'
+            errors.poscodeError = 'Postcode cannot be empty.'
         } else {
             errors.poscodeError = ''
         }
@@ -164,7 +175,7 @@ export default function Signup() {
                                         error={Boolean(formErrors.emailError)}
                                         helperText={formErrors.emailError} />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} sm={6}>
                                     <TextField
                                         required
                                         fullWidth
@@ -178,6 +189,20 @@ export default function Signup() {
                                         value={formData.password}
                                         error={Boolean(formErrors.passwordError)}
                                         helperText={formErrors.passwordError} />
+                                </Grid>
+                                <Grid item xs={12} sm={6}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="confirmPassword"
+                                        label="Confirm Password"
+                                        type="password"
+                                        id="confirmPassword"
+                                        size="small"
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                        error={Boolean(formErrors.confirmPasswordError)}
+                                        helperText={formErrors.confirmPasswordError} />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
@@ -216,7 +241,7 @@ export default function Signup() {
                                         required
                                         fullWidth
                                         id="poscode"
-                                        label="Poscode"
+                                        label="Postcode"
                                         autoFocus
                                         size="small"
                                         onChange={handleChange}
