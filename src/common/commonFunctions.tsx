@@ -9,3 +9,11 @@ export const validatePasswordPattern = (pass: string) => {
     return passwordRegex.test(pass);
 }
 
+export const validateConfirmPassword = (pass1: string, pass2:string) => {
+    if(pass1 === pass2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
